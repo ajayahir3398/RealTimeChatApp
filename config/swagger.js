@@ -18,7 +18,7 @@ const options = {
     },
     servers: [
       {
-        url: 'https://chat-app-api-111k.onrender.com',
+        url: 'http://localhost:3000',
         description: 'Development server'
       }
     ],

@@ -17,9 +17,17 @@ const messageRoutes = require('./routes/messageRoutes');
 const app = express();
 
 // Middleware
-app.use(helmet({
+const helmetOptions = {
   crossOriginResourcePolicy: { policy: "cross-origin" }
-}));
+};
+
+// Disable some security headers in development for easier testing
+if (process.env.NODE_ENV === 'development') {
+  helmetOptions.contentSecurityPolicy = false;
+  helmetOptions.crossOriginEmbedderPolicy = false;
+}
+
+app.use(helmet(helmetOptions));
 app.use(cors(config.corsOptions));
 app.use(morgan('combined'));
 app.use(express.json());

@@ -14,10 +14,10 @@ const config = {
       process.env.ALLOWED_ORIGINS.split(',') : 
       (process.env.NODE_ENV === 'production' ? 
         ['https://your-frontend-domain.onrender.com'] : 
-        ['http://localhost:3000', 'http://localhost:4200']),
+        ['http://localhost:3000', 'http://localhost:4200', 'http://127.0.0.1:4200']),
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
   }
 };
 
